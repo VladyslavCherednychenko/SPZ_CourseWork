@@ -73,7 +73,7 @@ namespace SPZ_Course
                         {
                             try
                             {
-                                bld.Append("IP: " + Itms[0] + " - " + Dns.GetHostEntry(Itms[0].Trim()).HostName + "\r\n");
+                                bld.Append("IP: " + Itms[0] + "\t Device name: " + Dns.GetHostEntry(Itms[0].Trim()).HostName + "\r\n");
                             }
                             catch (Exception e)
                             {
@@ -85,7 +85,7 @@ namespace SPZ_Course
 
                 streamReader.Close();
 
-                OutputTextBox.Text += "Host: " + Dns.GetHostName() + "\r\n";
+                OutputTextBox.Text += "IP: " + Dns.GetHostAddresses(Dns.GetHostName())[0] + "\t Device name: " + Dns.GetHostName() + "\r\n";
                 OutputTextBox.Text += bld.ToString();
                 OutputTextBox.Text += "\r\n\r\n";
                 OutputTextBox.Text += $"Scan complete at: { DateTime.Now.ToString("h:mm:ss tt") }";
